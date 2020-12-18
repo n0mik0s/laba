@@ -31,7 +31,7 @@ resource "google_sql_database_instance" "instance" {
   name   = "database-instance-${random_string.db_id.result}"
   region = var.gcp_region
   settings {
-    tier = "db-e2-medium"
+    tier = "db-g1-small"
   }
 
   deletion_protection  = "false"
