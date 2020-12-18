@@ -70,8 +70,6 @@ resource "google_compute_instance_template" "instance_template" {
     wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
     sudo apt update
     sudo apt install grafana -y
-
-    sudo crontab -l | { cat; echo "*/1 0 0 0 0 cd /grafana/ && sudo ansible-playbook -i ./gcp.yml ./main.yml"; } | sudo crontab -
   EOF
 }
 

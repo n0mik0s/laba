@@ -140,6 +140,8 @@ resource "google_compute_instance" "server" {
     sudo echo 'sql_user_password: ${var.sql_user_password}' >> /grafana/group_vars/all
     sudo echo 'sql_user_name: ${var.sql_user_name}' >> /grafana/group_vars/all
     sudo echo 'sql_database: ${var.sql_database}' >> /grafana/group_vars/all
+
+    sudo crontab -l | { cat; echo "*/1 * * * * cd /grafana/ && sudo ansible-playbook -i ./gcp.yml ./main.yml"; } | sudo crontab -
   EOF
 }
 
