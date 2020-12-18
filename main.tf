@@ -1,3 +1,10 @@
+terraform {
+  backend "gcs" {
+    bucket  = "terraform-remote-states-test-298314"
+    prefix  = "terraform/state"
+  }
+}
+
 provider "google" {
   region  = var.gcp_region
   project = var.gcp_project
