@@ -74,8 +74,8 @@ resource "google_compute_instance_template" "instance_template" {
 }
 
 data "google_compute_image" "image" {
-  family  = "debian-cloud"
-  project = "debian-10"
+  family  = "debian-10"
+  project = "debian-cloud"
 }
 
 output "instance_template_id" {
